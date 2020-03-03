@@ -83,7 +83,7 @@ Likewise, I've also not found the sampling frequency to have much effect on resu
 
 * Perhaps for applications where initial ADC noise can be a problem, the ADC can be put into a digital output ground 0 after the for-loop.
 
-* The number of iterations of the for-loop can help to "increase sensitivity" but I think hardware mostly determins the capacitance change values.
+* The number of iterations of the for-loop can help to "increase sensitivity" but I think hardware mostly determines the capacitance value changes.
 
 * Generalization of C function for any ADC channel is possible, but dependent on PIC16F variant.   Might not be worth the time.
 
