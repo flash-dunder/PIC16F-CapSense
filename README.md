@@ -30,7 +30,7 @@ Similarly, this CapSense example also only requires 1 ADC input channel and work
 
 The AVR ADCtouch library initially charges up the hold capacitor of the input pin in a digital output state, and then [discharges the capacitor by grounding the ADMUX bits to 0V](http://maxembedded.com/2011/06/the-adc-of-the-avr/).  ADC measurements are subsequently taken to see how much capacitance change has been made.
 
-Since the Vref pins of the PIC ADC can only be held to Vdd/Vss or external inputs, as shown for the example PIC ADC diagram below, the PIC ADC channel should initially be made digital output 0V (GND), and then switched to analog internally referenced to Vdd/Vss and ADC measurements made to detect any capacitance changes for the Chold charge up times.
+Since the Vref pins of the PIC ADC can only be held to Vdd/Vss or external inputs, as shown for the example PIC ADC diagram below, the PIC ADC channel should initially be made digital output 0V (GND), and then switched to internally referenced Vdd/Vss.  ADC measurements can then be made to detect any capacitance changes for the Chold charge up times.
 
 ![PIC ADC MUX](https://electrosome.com/wp-content/uploads/2013/07/ADC-Module-Block-Diagram-PIC16F877A.jpg)
 
