@@ -26,11 +26,11 @@ This requires two ADC channels to be used concurrently; albeit, their functional
 
 Meanwhile, [Martin Pittermann's ADCTtouch library for AVR](https://github.com/martin2250/ADCTouch) only requires a single ADC channel and makes use of the AVR ADC's internal hold capacitor to charge/discharge [the ADC's sample and hold voltage](https://en.wikipedia.org/wiki/Sample_and_hold) and then take measurements of the change provided by an externally coupled capacitance.
 
-Similarly, this CapSense example also only requires 1 ADC input channel and works in a similar fashion by discharging/charging up the ADC hold capacitor in reverse to the ADCtouch library.  The reason being that [PIC ADC circuitry is designed](https://electrosome.com/adc-pic-microcontroller-mplab-xc8/) differently than the AVR's ADC for the reference voltages.
+Similarly, this CapSense example also only requires 1 ADC input channel and works in a similar fashion by discharging/charging up the ADC hold capacitor in reverse to the Arduino ADCtouch library.  The reason being that [PIC ADC circuitry is designed](https://electrosome.com/adc-pic-microcontroller-mplab-xc8/) differently than the AVR's ADC for the reference voltages.
 
 The AVR ADCtouch library initially charges up the hold capacitor of the input pin in a digital output state, and then [discharges the capacitor by grounding the ADMUX bits to 0V](http://maxembedded.com/2011/06/the-adc-of-the-avr/).  ADC measurements are subsequently taken to see how much capacitance change has been made.
 
-However, as shown for the example PIC ADC diagram below, the Vref pins of the PIC ADC can only be held to Vdd/Vss or external inputs.  Therefore, the PIC ADC channel should initially be made digital output 0V (GND), and then switched to analog internally referenced to Vdd/Vss and ADC measurements made to detect any capacitance changes for the Chold charge up times.
+Since the Vref pins of the PIC ADC can only be held to Vdd/Vss or external inputs, as shown for the example PIC ADC diagram below, the PIC ADC channel should initially be made digital output 0V (GND), and then switched to analog internally referenced to Vdd/Vss and ADC measurements made to detect any capacitance changes for the Chold charge up times.
 
 ![PIC ADC MUX](https://electrosome.com/wp-content/uploads/2013/07/ADC-Module-Block-Diagram-PIC16F877A.jpg)
 
